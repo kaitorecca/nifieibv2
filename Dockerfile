@@ -1,4 +1,4 @@
-FROM       xemuliam/nifi-base:0.6.1
+FROM       xemuliam/nifi-base:1.6.0
 MAINTAINER Tai Tran <hongtai91@gmail.com>
 ENV        BANNER_TEXT="" \
            S2S_PORT=""
