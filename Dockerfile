@@ -21,15 +21,8 @@ VOLUME     ${NIFI_HOME}/logs \
            ${NIFI_HOME}/provenance_repository
 WORKDIR    ${NIFI_HOME}
 CMD        ./bin/nifi.sh run           
-COPY       start_nifi.sh /${NIFI_HOME}/
-COPY       jdbc/* /${NIFI_HOME}/lib/
-VOLUME     /opt/datafiles \
-           /opt/scriptfiles \
-           /opt/certfiles
 RUN        apk update && \
            apk add gnumeric && \
            apk add --update python python-dev py-pip build-base && \
            apk add ttf-freefont && \
-           apk add unrar && \
-           chmod +x ./start_nifi.sh
-CMD        ./start_nifi.sh
+           apk add unrar
