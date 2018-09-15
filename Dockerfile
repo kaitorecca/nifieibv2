@@ -8,5 +8,10 @@ VOLUME     /opt/datafiles \
            /opt/scriptfiles \
            /opt/certfiles
 WORKDIR    ${NIFI_HOME}
+RUN        apk update && \
+           apk add gnumeric && \
+           apk add --update python python-dev py-pip build-base && \
+           apk add ttf-freefont && \
+           apk add unrar
 RUN        chmod +x ./start_nifi.sh
 CMD        ./start_nifi.sh
