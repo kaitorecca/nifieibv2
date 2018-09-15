@@ -2,8 +2,6 @@ FROM       alpine
 MAINTAINER Tai Tran <hongtai91@gmail.com>
 ARG        DIST_MIRROR=http://archive.apache.org/dist/nifi
 ARG        VERSION=1.7.1
-ENV        BANNER_TEXT="" \
-           S2S_PORT=""
 ENV        NIFI_HOME=/opt/nifi \
            JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk \
            PATH=$PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin
@@ -20,9 +18,4 @@ VOLUME     ${NIFI_HOME}/logs \
            ${NIFI_HOME}/content_repository \
            ${NIFI_HOME}/provenance_repository
 WORKDIR    ${NIFI_HOME}
-CMD        ./bin/nifi.sh run           
-RUN        apk update && \
-           apk add gnumeric && \
-           apk add --update python python-dev py-pip build-base && \
-           apk add ttf-freefont && \
-           apk add unrar
+CMD        ./bin/nifi.sh run
